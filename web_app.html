@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ProX Gaming Keyboard | E-Commerce Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #05060a;
+      color: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .navbar {
+      background: #05060a;
+      border-bottom: 1px solid #252633;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #00d8ff !important;
+    }
+
+    .hero-section {
+      background: radial-gradient(circle at top left, #111320, #05060a);
+      padding: 4rem 0 3rem;
+    }
+
+    .badge-new {
+      background: rgba(0, 216, 255, 0.15);
+      border: 1px solid #00d8ff;
+      color: #00d8ff;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      font-weight: 700;
+    }
+
+    .hero-highlight {
+      color: #ff3b8d;
+    }
+
+    .price-main {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #00d8ff;
+    }
+
+    .price-old {
+      text-decoration: line-through;
+      color: #888aa2;
+      font-size: 0.9rem;
+    }
+
+    .rating-stars {
+      color: #ffc107;
+      font-size: 1rem;
+    }
+
+    .keyboard-card {
+      background: #0b0d17;
+      border: 1px solid #1b1d2b;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    .keyboard-img {
+      background: linear-gradient(135deg, #ff3b8d33, #00d8ff33);
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+
+    .keyboard-img-inner {
+      height: 220px;
+      border-radius: 1rem;
+      background: linear-gradient(120deg, #15172a, #242742);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .keyboard-keys {
+      width: 90%;
+      height: 60%;
+      border-radius: 0.75rem;
+      background: linear-gradient(90deg, #10111f, #1b1d33);
+      box-shadow: 0 0 40px rgba(255, 59, 141, 0.4);
+      position: relative;
+    }
+
+    .keyboard-keys::after {
+      content: "";
+      position: absolute;
+      inset: 6%;
+      border-radius: 0.5rem;
+      background-image: linear-gradient(
+        90deg,
+        #ff3b8d 10%,
+        #ffb347 25%,
+        #00d8ff 50%,
+        #8a2be2 75%,
+        #ff3b8d 90%
+      );
+      mix-blend-mode: screen;
+      opacity: 0.8;
+    }
+
+    .light-strip {
+      position: absolute;
+      inset-inline: 8%;
+      bottom: -6px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff3b8d, #00d8ff, #ffb347);
+      filter: blur(2px);
+      opacity: 0.8;
+    }
+
+    .feature-chip {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #34354a;
+      background: rgba(10, 11, 24, 0.9);
+    }
+
+    .spec-list li {
+      margin-bottom: 0.35rem;
+      font-size: 0.9rem;
+      color: #d4d6f6;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: #a3a5c5;
+    }
+
+    .product-card {
+      background: #0b0d17;
+      border-color: #1b1d2b;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: #00d8ff;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .badge-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff3b8d, #ff7b54);
+      border: none;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-outline-light {
+      border-radius: 999px;
+    }
+
+    .footer {
+      border-top: 1px solid #24263a;
+      padding: 1.5rem 0;
+      font-size: 0.85rem;
+      color: #8d8fab;
+    }
+
+    .newsletter-input {
+      background: #05060a;
+      border-color: #2b2d40;
+      color: #f5f5f5;
+    }
+
+    .newsletter-input::placeholder {
+      color: #6c6e8a;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid #2d2f44;
+      color: #a2a4c5;
+    }
+
+    @media (max-width: 768px) {
+      .keyboard-img-inner {
+        height: 180px;
+      }
+      .hero-section {
+        padding-top: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">NexusGear</a>
+      <button
+        class="navbar-toggler text-light border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon d-inline-block">
+          <span class="bi bi-list"></span>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#specs">Specs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#reviews">Reviews</a>
+          </li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a href="#buy" class="btn btn-sm btn-outline-light px-3">View Cart (0)</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / MAIN PRODUCT SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <!-- Product Image -->
+        <div class="col-lg-6 order-2 order-lg-1">
+          <div class="keyboard-card rounded-4 p-3 p-md-4">
+            <div class="keyboard-img mb-3">
+              <div class="keyboard-img-inner">
+                <div class="keyboard-keys"></div>
+                <div class="light-strip"></div>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="feature-chip">Hot-swappable Switches</span>
+              <span class="feature-chip">Per-key RGB</span>
+              <span class="feature-chip">Aluminum Frame</span>
+              <span class="feature-chip">Detachable USB-C</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="col-lg-6 order-1 order-lg-2">
+          <span class="badge badge-new mb-3">New • 2025 Edition</span>
+          <h1 class="hero-title mb-3">
+            ProX <span class="hero-highlight">RGB Gaming Keyboard</span>
+          </h1>
+          <p class="mb-3 section-subtitle">
+            Smash your APM with a compact 87-key layout, hot-swappable mechanical switches,
+            and per-key RGB that reacts to your game. Built for esports, tuned for everyday typing.
+          </p>
+
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="rating-stars">
+              ★★★★☆
+            </div>
+            <span class="pill">4.7 / 5.0 (128 reviews)</span>
+          </div>
+
+          <div class="d-flex align-items-baseline gap-3 mb-3">
+            <span class="price-main">$89.00</span>
+            <span class="price-old">$119.00</span>
+            <span class="pill text-uppercase">25% Off</span>
+          </div>
+
+          <div class="mb-3">
+            <span class="pill me-2">In Stock</span>
+            <span class="pill">Free Shipping over $50</span>
+          </div>
+
+          <form id="buy" class="mb-4">
+            <div class="row g-2 align-items-center mb-3">
+              <div class="col-md-4">
+                <label class="form-label small">Switch Type</label>
+                <select class="form-select form-select-sm bg-dark text-light border-secondary">
+                  <option value="linear">Linear Red</option>
+                  <option value="tactile">Tactile Brown</option>
+                  <option value="clicky">Clicky Blue</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label small">Quantity</label>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="form-control form-control-sm bg-dark text-light border-secondary"
+                />
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="btn btn-primary px-4">
+                Add to Cart
+              </button>
+              <button type="button" class="btn btn-outline-light px-4">
+                Buy Now
+              </button>
+            </div>
+          </form>
+
+          <div class="d-flex flex-wrap gap-3 small text-secondary">
+            <span>✔ 2-Year Warranty</span>
+            <span>✔ 30-Day Money-Back</span>
+            <span>✔ Secure Checkout</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section id="features" class="py-5">
+    <div class="container">
+      <div class="row mb-4 align-items-end">
+        <div class="col-md-8">
+          <h2 class="section-title mb-1">Why players love ProX RGB</h2>
+          <p class="section-subtitle">
+            Built to survive long ranked sessions, every detail is tuned for precision, durability, and style.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Feature card 1 -->
+        <div class="col-md-4">
+          <div class="card border-0 product-card h-100">
+            <div class="card-body">
+              <span class="badge bg-secondary-subtle text-light badge-tag mb-2">Performance</span>
+              <h5 class="card-title text-light">Hot-swappable mechanical switches</h5>
+              <p class="card-text text-secondary">
+                Swap switches without soldering. Go from linear to tactile in seconds and find the
+                perfect feel for FPS or MOBA.
+              </p>
+              <ul class="spec-list list-unstyled">
+                <li>• Supports MX-style mechanical switches</li>
+                <li>• Pre-lubed stabilizers</li>
+                <li>• N-key rollover & anti-ghosting</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature card 2 -->
+        <div class="col-md-4">
+          <div class="card border-0 product-card h-100">
+            <div class="card-body">
+              <span class="badge bg-secondary-subtle text-light badge-tag mb-2">Lighting</span>
+              <h5 class="card-title text-light">Per-key reactive RGB</h5>
+              <p class="card-text text-secondary">
+                16.8M colors, multiple onboard profiles, and game-reactive lighting — no software required.
+              </p>
+              <ul class="spec-list list-unstyled">
+                <li>• 18 built-in lighting modes</li>
+                <li>• Custom per-key maps</li>
+                <li>• Adjustable brightness & speed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature card 3 -->
+        <div class="col-md-4">
+          <div class="card border-0 product-card h-100">
+            <div class="card-body">
+              <span class="badge bg-secondary-subtle text-light badge-tag mb-2">Build</span>
+              <h5 class="card-title text-light">Aluminum top plate, compact body</h5>
+              <p class="card-text text-secondary">
+                Tenkeyless layout for more mouse space, with an aluminum plate for stability and a detachable USB-C cable.
+              </p>
+              <ul class="spec-list list-unstyled">
+                <li>• 87-key TKL layout</li>
+                <li>• Double-shot PBT keycaps</li>
+                <li>• Detachable braided USB-C cable</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS & RELATED PRODUCTS -->
+  <section id="specs" class="pb-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Specs table -->
+        <div class="col-lg-6">
+          <h3 class="section-title mb-3">Technical Specs</h3>
+          <p class="section-subtitle mb-3">
+            Everything you need to know before you queue for your next ranked match.
+          </p>
+          <div class="table-responsive">
+            <table class="table table-dark table-striped table-borderless align-middle small">
+              <tbody>
+                <tr>
+                  <th scope="row">Layout</th>
+                  <td>Tenkeyless (87 keys)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Connection</th>
+                  <td>Wired USB-C (1.8m braided cable)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Switches</th>
+                  <td>Hot-swappable (MX-compatible)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Keycaps</th>
+                  <td>Double-shot PBT, OEM profile</td>
+                </tr>
+                <tr>
+                  <th scope="row">Polling Rate</th>
+                  <td>1000 Hz</td>
+                </tr>
+                <tr>
+                  <th scope="row">Lighting</th>
+                  <td>Per-key RGB, 18 modes, on-board memory</td>
+                </tr>
+                <tr>
+                  <th scope="row">Dimensions</th>
+                  <td>361 × 133 × 38 mm</td>
+                </tr>
+                <tr>
+                  <th scope="row">Weight</th>
+                  <td>980 g</td>
+                </tr>
+                <tr>
+                  <th scope="row">Compatibility</th>
+                  <td>Windows, macOS, Linux, PlayStation, Xbox</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Related products -->
+        <div class="col-lg-6">
+          <h3 class="section-title mb-3">You might also like</h3>
+          <div class="row g-3">
+            <!-- Product 1 -->
+            <div class="col-sm-6">
+              <div class="card product-card border-0 h-100">
+                <div class="card-body">
+                  <h6 class="text-light mb-1">ProX RGB Wrist Rest</h6>
+                  <p class="small text-secondary mb-2">
+                    Memory foam wrist rest with anti-slip rubber base.
+                  </p>
+                  <p class="mb-0">
+                    <span class="fw-semibold">$19.00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-sm-6">
+              <div class="card product-card border-0 h-100">
+                <div class="card-body">
+                  <h6 class="text-light mb-1">Nexus Switch Sampler</h6>
+                  <p class="small text-secondary mb-2">
+                    Try 12 different mechanical switches before you commit.
+                  </p>
+                  <p class="mb-0">
+                    <span class="fw-semibold">$14.00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-sm-6">
+              <div class="card product-card border-0 h-100">
+                <div class="card-body">
+                  <h6 class="text-light mb-1">Nexus Desk Mat XL</h6>
+                  <p class="small text-secondary mb-2">
+                    Low-friction surface with stitched RGB edges.
+                  </p>
+                  <p class="mb-0">
+                    <span class="fw-semibold">$29.00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-sm-6">
+              <div class="card product-card border-0 h-100">
+                <div class="card-body">
+                  <h6 class="text-light mb-1">Spare PBT Keycap Set</h6>
+                  <p class="small text-secondary mb-2">
+                    Gradient keycap set to match your RGB themes.
+                  </p>
+                  <p class="mb-0">
+                    <span class="fw-semibold">$39.00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div> <!-- row -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS + NEWSLETTER -->
+  <section id="reviews" class="pb-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Reviews -->
+        <div class="col-lg-7">
+          <h3 class="section-title mb-3">Player Reviews</h3>
+
+          <div class="card product-card border-0 mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between mb-1">
+                <strong>Panha</strong>
+                <span class="rating-stars small">★★★★★</span>
+              </div>
+              <p class="small text-secondary mb-0">
+                Switched from a full-size board and the extra mouse space is insane. Lighting looks
+                amazing on stream and the reds feel smooth for FPS.
+              </p>
+            </div>
+          </div>
+
+          <div class="card product-card border-0 mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between mb-1">
+                <strong>Makara</strong>
+                <span class="rating-stars small">★★★★☆</span>
+              </div>
+              <p class="small text-secondary mb-0">
+                Love that I can hot-swap switches. I use linears for gaming and tactiles for work.
+                Software-free RGB is a big plus.
+              </p>
+            </div>
+          </div>
+
+          <button class="btn btn-outline-light btn-sm mt-1">
+            View all reviews
+          </button>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="col-lg-5">
+          <h3 class="section-title mb-3">Stay in the Nexus</h3>
+          <p class="section-subtitle">
+            Get early access to limited-run colorways, restocks, and keyboard tips directly in your inbox.
+          </p>
+          <form class="mb-3">
+            <div class="mb-3">
+              <label class="form-label small">Email address</label>
+              <input
+                type="email"
+                class="form-control newsletter-input form-control-sm"
+                placeholder="you@example.com"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm w-100">
+              Join the mailing list
+            </button>
+          </form>
+          <p class="small text-secondary mb-0">
+            By subscribing you agree to receive emails from NexusGear. No spam, just high-APM goodness.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <span>© 2025 NexusGear. All rights reserved.</span>
+      <div class="d-flex gap-3 small">
+        <a href="#" class="text-decoration-none text-secondary">Privacy</a>
+        <a href="#" class="text-decoration-none text-secondary">Terms</a>
+        <a href="#" class="text-decoration-none text-secondary">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+</body>
+</html>
